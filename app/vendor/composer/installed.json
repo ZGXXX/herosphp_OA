@@ -1,0 +1,50 @@
+[
+    {
+        "name": "herosphp/framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yangjian102621/herosphp.git",
+            "reference": "6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/yangjian102621/herosphp/6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c.zip",
+            "reference": "6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-12-19 06:58:01",
+        "type": "framework",
+        "installation-source": "source",
+        "autoload": {
+            "files": [
+                "src/functions.core.php",
+                "src/Heros.const.php"
+            ],
+            "psr-4": {
+                "herosphp\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache2"
+        ],
+        "authors": [
+            {
+                "name": "blackfox",
+                "email": "yangjian102621@gmail.com"
+            }
+        ],
+        "description": "a lightweight PHP development framework - herosphp Framework",
+        "homepage": "https://github.com/yangjian102621/herosphp",
+        "keywords": [
+            "herosphp",
+            "lightweight",
+            "php framework"
+        ]
+    }
+]

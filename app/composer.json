@@ -1,0 +1,11 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "code/php/herosphp"
+        }
+    ],
+    "require": {
+        "herosphp/framework": "*@dev"
+    }
+}

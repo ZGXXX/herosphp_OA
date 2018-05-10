@@ -1,0 +1,67 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "4c28ac26d64b9a542790d3adee8fd4e3",
+    "content-hash": "55e118177ba0409dcaec247ba7ff3c4c",
+    "packages": [
+        {
+            "name": "herosphp/framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yangjian102621/herosphp.git",
+                "reference": "6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/yangjian102621/herosphp/6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c.zip",
+                "reference": "6c9275a4656f8e9ed96ad01f45f956a7ccf70e3c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "framework",
+            "autoload": {
+                "files": [
+                    "src/functions.core.php",
+                    "src/Heros.const.php"
+                ],
+                "psr-4": {
+                    "herosphp\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache2"
+            ],
+            "authors": [
+                {
+                    "name": "blackfox",
+                    "email": "yangjian102621@gmail.com"
+                }
+            ],
+            "description": "a lightweight PHP development framework - herosphp Framework",
+            "homepage": "https://github.com/yangjian102621/herosphp",
+            "keywords": [
+                "herosphp",
+                "lightweight",
+                "php framework"
+            ],
+            "time": "2017-12-19 06:58:01"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "herosphp/framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
