@@ -1,0 +1,75 @@
+<table width="100%" class="am-table am-table-compact am-table-hover tpl-table-black am-table-bordered" id="clist-table">
+    <thead>
+    <tr>
+        <th class="list-checkbox-th">
+            <label class="am-checkbox-inline">
+                <input type="checkbox" data-type="icheck" id="check-all" value="0">
+            </label>
+        </th>
+        <th>姓名</th>
+        <th>假期类型</th>
+        <th>开始时间</th>
+        <th>结束时间</th>
+        <th>合计小时</th>
+        <th>原因</th>
+        <th>申请状态</th>
+        <th>申请时间</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {if empty($level_wait)}
+    <tr><td class="empty-td">暂无记录.</td></tr>
+    {/if}
+
+    {loop $level_wait $value}
+    <tr class="gradeX">
+        <td class="list-checkbox-th">
+            <label class="am-checkbox-inline">
+                <input type="checkbox" data-type="icheck" name="ids[]"  value="{$value[id]}">
+            </label>
+        </td>
+        <td>{$value[user_name]}</td>
+        <td>{$value[level_name]}</td>
+        <td>{$value[begintime]}</td>
+        <td>{$value[endtime]}</td>
+        <td>{$value[count]}</td>
+        <td>{$value[reason]}</td>
+        {if $value[status] == 0}
+        <td>待审核</td>
+        {elseif $value[status] == 1}
+        <td>已同意</td>
+        {elseif $value[status] == 2}
+        <td>未通过</td>
+        {/if}
+        <td>{$value[addtime]}</td>
+        <td>
+            <a class="am-btn am-btn-primary am-btn-xxs am-round item-edit"
+               data-id="{$value[id]}"
+               href="javascript:;">
+                <i class="am-icon-pencil"></i> 审核
+            </a>
+        </td>
+    </tr>
+    {/loop}
+    <!-- more data -->
+    </tbody>
+</table>
+<script type="text/html" id="index-template">
+    <form data-action="{%url%}" class="am-form" id="cAdd" data-location="reload">
+        <div class="am-form-group">
+            <label class="am-radio-inline">
+                <input type="radio" name="data[status]" value="1" data-am-ucheck checked> 同意
+            </label>
+            <label class="am-radio-inline">
+                <input type="radio" name="data[status]" value="2" data-am-ucheck> 不同意
+            </label>
+        </div>
+        <div class="am-form-group">
+            <label for="doc-vld-ta-1">反馈：</label>
+            <textarea id="doc-vld-ta-1" name="data[feedback]" maxlength="100"></textarea>
+        </div>
+        <input type="hidden" name="id" value="{%item.id%}">
+    </form>
+</script>

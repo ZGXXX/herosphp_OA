@@ -1,0 +1,105 @@
+{include admin.inc.header}
+
+<body>
+
+<div class="am-g tpl-g">
+
+    {include admin.inc.top}
+
+
+    {include admin.inc.leftmenu}
+
+    <!-- content goes here -->
+    <div class="tpl-content-wrapper">
+        <div class="row-content am-cf">
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <span>假期申请</span>
+                        </div>
+                        <div class="widget-body  am-fr">
+
+                            <div class="am-u-sm-12">
+                                <form data-action="{$insert_url}" class="am-form" id="cAdd" data-location="{$index_url}">
+                                    <div class="am-form-group">
+                                        <label class="am-form-label">用户ID：</label>
+                                        <input type="text" name="data[user_id]" readonly = "readonly" value="{$user_id}">
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label class="am-form-label">姓名：</label>
+                                        <input type="text" maxlength="20" name="data[user_name]" placeholder="输入姓名" required>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label class="am-form-label">请假类型：</label>
+                                        <select name="data[level_name]" data-am-selected="{btnWidth:'100%'}" placeholder="请选择假期类型">
+                                            {loop $items $value}
+                                            <option value="{$value[name]}">{$value[name]}</option>
+                                            {/loop}
+                                        </select>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label>开始时间：</label>
+                                        <div class="am-input-group">
+                                            <input type="text" id="start_time" name="data[begintime]" placeholder="请选择开始时间" required/>
+                                            <a class="am-input-group-btn">
+                                                <button class="am-btn am-btn-default reset1" type="button">重置</button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label>结束时间：</label>
+                                        <div class="am-input-group">
+                                            <input type="text" id="end_time" name="data[endtime]" placeholder="请选择结束时间" required/>
+                                            <a class="am-input-group-btn">
+                                                <button class="am-btn am-btn-default reset2" type="button">重置</button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <label>共计:</label>
+                                        <input type="number" name="data[count]" placeholder="_ _个小时" required>
+                                    </div>
+
+                                    <div class="am-form-group" id="example">
+                                        <label>请假原因：</label>
+                                        <div>
+                                            <textarea rows="5" name="data[reason]" required></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="am-form-group">
+                                        <button type="submit" class="am-btn am-btn-primary">提交保存</button>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <div class="am-u-lg-12">
+                                <div th:replace="admin/include :: footer">web page footer goes here.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{include admin.inc.res}
+
+{res:js common/js/vue.js}
+{res:js common/js/jupload/JUpload.js}
+{res:js common/NKeditor/NKeditor-all-min.js}
+<script>
+    seajs.use("level");
+</script>
+
+</body>
+
+</html>

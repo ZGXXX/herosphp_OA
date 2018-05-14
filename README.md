@@ -54,3 +54,5 @@ $request->getParameter('data');是用来获取前端表单属性name的值,例�
 
 	<input type="text" name="data[name]" value="{$item[name]}" placeholder="输入姓名" required>
 
+### 2018.5.13
+新增假期申请，假期类型，主要问题是对herosphp了解不深，例如里面涉及到的一系列js编译工具，还有amazue ui框架

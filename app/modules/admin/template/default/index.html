@@ -8,190 +8,147 @@
 
 
     {include admin.inc.leftmenu}
-    
+
+
     <!-- content goes here -->
     <div class="tpl-content-wrapper">
         <div class="row-content am-cf">
             <div class="row">
+
+                {if $isSuper}
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
-                            <div class="widget-title  am-cf" th:text="${title}">数据添加 {res /20171109/php-webdriver.html}</div>
+                            <div class="widget-title  am-cf">待处理</div>
                         </div>
                         <div class="widget-body  am-fr">
-    
-                            <div class="am-u-sm-12">
-                                <form data-action="/admin/doAdd" class="am-form" id="cAdd" data-location="/admin/manager/index">
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">用户名：</label>
-                                        <input type="text" maxlength="20" name="username"
-                                               data-name="username"
-                                               placeholder="输入用户名 6-20"
-                                               class="js-ajax-validate" data-url="/admin/manager/exists/"
-                                               data-validation-message="用户名已经被注册,请更换." required>
+                            <div class="am-tabs" id="doc-my-tabs">
+                                <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+                                    <li class="am-active"><a href="">假期申请</a></li>
+                                    <li><a href="">办公室申请</a></li>
+                                    <li><a href="">物品申请</a></li>
+                                </ul>
+                                <div class="am-tabs-bd">
+                                    <div class="am-tab-panel am-active">
+                                        {include admin.levellist}
                                     </div>
-    
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">下拉选框（普通）：</label>
-                                        <select name="rids" placeholder="请选择角色，可多选">
-                                            <option value="1">超级管管理员</option>
-                                            <option value="2">超级管管理员1</option>
-                                            <option value="3">超级管管理员2</option>
-                                            <option value="3">超级管管理员3</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">select控件（单选）：</label>
-                                        <select name="rids" data-am-selected="{btnWidth:'100%'}" placeholder="请选择角色，单选">
-                                            <option value="1">超级管管理员</option>
-                                            <option value="2">超级管管理员1</option>
-                                            <option value="3">超级管管理员2</option>
-                                            <option value="3">超级管管理员3</option>
-                                        </select>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">select控件（多选）：</label>
-                                        <select name="rids" multiple data-am-selected="{btnWidth:'100%'}" placeholder="请选择角色，多选">
-                                            <option value="1">超级管管理员</option>
-                                            <option value="2">超级管管理员1</option>
-                                            <option value="3">超级管管理员2</option>
-                                            <option value="3">超级管管理员3</option>
-                                        </select>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">chosen控件（多选）：</label>
-                                        <select name="rids" multiple data-type="chosen" data-placeholder="请选择角色，多选，最多选3项">
-                                            <option value="1">超级管管理员</option>
-                                            <option value="2">超级管管理员1</option>
-                                            <option value="3">超级管管理员2</option>
-                                            <option value="3">超级管管理员3</option>
-                                        </select>
-                                    </div>
-            
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">密码：</label>
-                                        <input type="password" name="password" minlength="6" maxlength="20"
-                                               id="password" placeholder="请输入密码 6-20" required>
-                                    </div>
-            
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">确认密码：</label>
-                                        <input type="password" name="repass" minlength="6" maxlength="20"
-                                               placeholder="请确认密码"
-                                               data-equal-to="#password" data-validation-message="请输入跟上面一致的密码" required>
-                                    </div>
-            
-                                    <div class="am-form-group">
-                                        <label>单选：</label>
-                                        <label class="am-radio-inline">
-                                            <input type="radio" value="1" name="radio" data-type="icheck"> item_1
-                                        </label>
-                                        <label class="am-radio-inline">
-                                            <input type="radio" value="0" name="radio" data-type="icheck"> item_2
-                                        </label>
-                                        <label class="am-radio-inline">
-                                            <input type="radio" value="0" name="radio" data-type="icheck"> item_3
-                                        </label>
-                                        <label class="am-radio-inline">
-                                            <input type="radio" value="0" name="radio" data-type="icheck"> item_4
-                                        </label>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <label>多选：</label>
-                                        <label class="am-checkbox-inline">
-                                            <input type="checkbox" value="1" name="cbox"data-type="icheck"> item_1
-                                        </label>
-                                        <label class="am-checkbox-inline">
-                                            <input type="checkbox" value="0" name="cbox" data-type="icheck"> item_2
-                                        </label>
-                                        <label class="am-checkbox-inline">
-                                            <input type="checkbox" value="0" name="cbox" data-type="icheck"> item_3
-                                        </label>
-                                        <label class="am-checkbox-inline">
-                                            <input type="checkbox" value="0" name="cbox" data-type="icheck"> item_4
-                                        </label>
-                                    </div>
-                                    
-                                    <div class="am-form-group">
-                                        <label>Switch 开关控件：</label>
-                                        <div class="tpl-switch">
-                                            <input type="checkbox" data-type="switch" class="ios-switch tpl-switch-btn am-margin-top-xs">
-                                            <div class="tpl-switch-btn-view"><div></div></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="am-form-group">
-                                        <label>日期选择：</label>
-                                        <div class="am-input-group">
-                                            <input type="text" id="date" placeholder="请选择日期" />
-                                            <a class="am-input-group-btn">
-                                                <button class="am-btn am-btn-default" type="button">
-                                                    <i class="icon-th am-icon-calendar"></i></button>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="am-form-group">
-                                        <label>时间选择：</label>
-                                        <div class="am-input-group">
-                                            <input type="text" id="time" placeholder="请选择时间" />
-                                            <a class="am-input-group-btn">
-                                                <button class="am-btn am-btn-default" type="button">
-                                                    <i class="icon-th am-icon-clock-o"></i></button>
-                                            </a>
-                                        </div>
-                                    </div>
-    
-                                    <div class="am-form-group" id="example">
-                                        <label>Vue数据双向绑定： {{ message }}</label>
-                                        <div>
-                                            <textarea rows="5" v-model="message"></textarea>
-                                        </div>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <label class="am-form-label">图片上传</label>
-                                        <div class="am-form-group clearfix">
-                                            <div id="image-box"></div>
-                                            <span type="button" id="upload-btn" class="img-upload">
-                                                <i class="am-icon-plus am-icon-btn" title="添加图片"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text" name="pic" id="pic" placeholder="请上传图片" class="not-display"
-                                               required>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <label>NKeditor 编辑器(七牛云版)：</label>
-                                        <div>
-                                            <textarea rows="5" name="content"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="am-form-group">
-                                        <label>NKeditor 编辑器(通用本地上传版)：</label>
-                                        <div>
-                                            <textarea rows="5" name="content1"></textarea>
-                                        </div>
-                                    </div>
-    
-                                    <div class="am-form-group">
-                                        <button type="submit" class="am-btn am-btn-primary">提交保存</button>
-                                    </div>
-        
-                                </form>
-                            </div>
-                            
-                            <div class="am-u-lg-12">
-                                <div th:replace="admin/include :: footer">web page footer goes here.</div>
+                                    <div class="am-tab-panel">办公室申请</div>
+                                    <div class="am-tab-panel">物品申请</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">已处理</div>
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-tabs" id="doc-my-tabs">
+                                <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+                                    <li class="am-active"><a href="">假期申请</a></li>
+                                    <li><a href="">办公室申请</a></li>
+                                    <li><a href="">物品申请</a></li>
+                                </ul>
+                                <div class="am-tabs-bd">
+                                    <div class="am-tab-panel am-active">
+                                        {include admin.levellist}
+                                    </div>
+                                    <div class="am-tab-panel">办公室申请</div>
+                                    <div class="am-tab-panel">物品申请</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/if}
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title  am-cf">我的申请</div>
+                        </div>
+                        <div class="widget-body  am-fr">
+                            <div class="am-tabs" id="doc-my-tabs">
+                                <ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
+                                    <li class="am-active"><a href="">假期申请</a></li>
+                                    <li><a href="">办公室申请</a></li>
+                                    <li><a href="">物品申请</a></li>
+                                </ul>
+                                <div class="am-tabs-bd">
+                                    <div class="am-tab-panel am-active">
+                                        <table width="100%" class="am-table am-table-compact am-table-hover tpl-table-black am-table-bordered" id="clist-table">
+                                            <thead>
+                                            <tr>
+                                                <th class="list-checkbox-th">
+                                                    <label class="am-checkbox-inline">
+                                                        <input type="checkbox" data-type="icheck" id="check-all" value="0">
+                                                    </label>
+                                                </th>
+                                                <th>姓名</th>
+                                                <th>假期类型</th>
+                                                <th>开始时间</th>
+                                                <th>结束时间</th>
+                                                <th>合计小时</th>
+                                                <th>原因</th>
+                                                <th>申请状态</th>
+                                                <th>申请时间</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            {if empty($items)}
+                                            <tr><td class="empty-td">暂无记录.</td></tr>
+                                            {/if}
+
+                                            {loop $items $value}
+                                            <tr class="gradeX">
+                                                <td class="list-checkbox-th">
+                                                    <label class="am-checkbox-inline">
+                                                        <input type="checkbox" data-type="icheck" name="ids[]"  value="{$value[id]}">
+                                                    </label>
+                                                </td>
+                                                <td>{$value[user_name]}</td>
+                                                <td>{$value[level_name]}</td>
+                                                <td>{$value[begintime]}</td>
+                                                <td>{$value[endtime]}</td>
+                                                <td>{$value[count]}</td>
+                                                <td>{$value[reason]}</td>
+                                                {if $value[status] == 0}
+                                                <td>待审核</td>
+                                                {elseif $value[status] == 1}
+                                                <td>已同意</td>
+                                                {elseif $value[status] == 2}
+                                                <td>未通过</td>
+                                                {elseif $value[status] == 3}
+                                                <td>已取消</td>
+                                                {/if}
+                                                <td>{$value[addtime]}</td>
+                                                <td>
+                                                    {if $value[status] == 0}
+                                                    <a data-url="{$delete_url}?id={$value[id]}"
+                                                       href="javascript:;" class="am-btn am-btn-danger am-btn-xxs am-round item-delete">
+                                                        <i class="am-icon-trash"></i> 取消
+                                                    </a>
+                                                    {/if}
+                                                </td>
+                                            </tr>
+                                            {/loop}
+                                            <!-- more data -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="am-tab-panel">办公室申请</div>
+                                    <div class="am-tab-panel">物品申请</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -203,10 +160,7 @@
 {res:js common/js/jupload/JUpload.js}
 {res:js common/NKeditor/NKeditor-all-min.js}
 <script>
-    seajs.use("index", function (exports) {
-        exports.upload(['http://owxozhodg.bkt.clouddn.com/image-a0015ec2d801da0001.jpg','http://owxozhodg.bkt.clouddn.com/image-a0015ec2d803ee0001.jpg']);
-        exports.editor();
-    });
+    seajs.use("index");
     
 </script>
 
