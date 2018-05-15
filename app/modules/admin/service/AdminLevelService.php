@@ -36,8 +36,8 @@ class AdminLevelService extends CommonService {
     /**
      * 管理员处理假期申请
      */
-    public function levelList($status) {
-        $levelList = $this->order('id ASC')->where('status',$status)->find();
+    public function levelList($status = array()) {
+        $levelList = $this->order('id ASC')->where('status','IN',$status)->find();
         return $levelList;
     }
 }

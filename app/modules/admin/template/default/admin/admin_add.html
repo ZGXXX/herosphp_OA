@@ -34,7 +34,7 @@
     
                                     <div class="am-form-group">
                                         <label class="am-form-label">角色：</label>
-                                        <select name="rids" multiple id="chosen-select"
+                                        <select name="rids[]" multiple id="chosen-select"
                                                 data-placeholder="请选择角色，可多选">
                                             {loop $roles $value}
                                             <option value="{$value[id]}">{$value[name]}</option>

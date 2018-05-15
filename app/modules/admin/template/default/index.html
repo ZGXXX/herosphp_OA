@@ -15,7 +15,7 @@
         <div class="row-content am-cf">
             <div class="row">
 
-                {if $isSuper}
+                {if $isManager}
                 <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
                     <div class="widget am-cf">
                         <div class="widget-head am-cf">
@@ -30,7 +30,7 @@
                                 </ul>
                                 <div class="am-tabs-bd">
                                     <div class="am-tab-panel am-active">
-                                        {include admin.levellist}
+                                        {include admin.waitdeal}
                                     </div>
                                     <div class="am-tab-panel">办公室申请</div>
                                     <div class="am-tab-panel">物品申请</div>
@@ -54,7 +54,7 @@
                                 </ul>
                                 <div class="am-tabs-bd">
                                     <div class="am-tab-panel am-active">
-                                        {include admin.levellist}
+                                        {include admin.dealed}
                                     </div>
                                     <div class="am-tab-panel">办公室申请</div>
                                     <div class="am-tab-panel">物品申请</div>

@@ -62,18 +62,24 @@ class AdminService extends CommonService {
     /**
      * 判断当前登录的是否为超级管理员
      */
-    public function isSuperManager() {
+    public function isManager() {
 
         Session::start();
-        $role_id =  Session::get(self::LOGIN_USER_SESSION_KEY)[role_ids];
+        //获取登录人role_id
+        $role_id = Session::get(self::LOGIN_USER_SESSION_KEY)[role_ids];
         $role_id = StringUtils::jsonDecode($role_id);
+
         $roleService = Loader::service(AdminRoleService::class);
-        $super_id = $roleService->where('name','超级管理员')->fields('id')->find();
-        if (in_array($super_id[0][id],$role_id)){
-            return true;
-        } else {
-            return false;
+        $superManager = $roleService->where('name','超级管理员')->fields('id')->find();
+        $manager = $roleService->where('name','管理员')->fields('id')->find();
+        $user_role = array();
+        if (in_array($superManager[0]['id'],$role_id)) {
+            $user_role[] = '超级管理员';
         }
+        if (in_array($manager[0]['id'],$role_id)) {
+            $user_role[] = '管理员';
+        }
+        return $user_role;
     }
 
     /**

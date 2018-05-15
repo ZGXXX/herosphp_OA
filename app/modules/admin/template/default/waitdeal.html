@@ -1,3 +1,4 @@
+<!--未处理板块-->
 <table width="100%" class="am-table am-table-compact am-table-hover tpl-table-black am-table-bordered" id="clist-table">
     <thead>
     <tr>
@@ -44,12 +45,17 @@
         <td>未通过</td>
         {/if}
         <td>{$value[addtime]}</td>
+
         <td>
+            {if $isSuper}
             <a class="am-btn am-btn-primary am-btn-xxs am-round item-edit"
                data-id="{$value[id]}"
                href="javascript:;">
                 <i class="am-icon-pencil"></i> 审核
             </a>
+            {else}
+            <i class="am-icon-pencil"></i> 不可操作
+            {/if}
         </td>
     </tr>
     {/loop}

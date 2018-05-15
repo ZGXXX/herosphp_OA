@@ -23,31 +23,23 @@ class IndexAction extends CommonAction {
         $this->assign('items', $myLevel);
         $this->assign('delete_url',"/admin/level/detele");
 
-        //如果是超级管理员则显示处理面板
+        //如果是管理员则显示处理面板
         $adminService = Loader::service(AdminService::class);
-        $isSuper = $adminService->isSuperManager();
-        if ($isSuper) {
-            $this->assign('isSuper',$isSuper);
-            //待处理的假期申请,参数0
-            $level_wait = $levelService->levelList(0);
+        $isManager = $adminService->isManager();
+        if ($isManager) {
+            $this->assign('isManager',$isManager);
+            //如果是超级管理员
+            if (in_array('超级管理员',$isManager)) {
+                $this->assign('isSuper',true);
+            }
+            //待处理的假期申请,参数array(0)
+            $level_wait = $levelService->levelList(array(0));
             $this->assign('level_wait', $level_wait);
+            //已处理的假期申请,参数array(1,2)
+            $level_dealed = $levelService->levelList(array(1,2));
+            $this->assign('level_dealed', $level_dealed);
         }
         $this->setView("index");
     }
-
-    /**
-     * 404 页面
-     */
-    public function page404(HttpRequest $request) {
-        $this->setView('404');
-    }
-
-    /**
-     * 403 页面
-     */
-    public function page403(HttpRequest $request) {
-        $this->setView('403');
-    }
-
 
 }
