@@ -30,7 +30,7 @@ define(function(require, exports) {
     //假期申请审查
     $(".item-edit").on("click", function () {
         var id = $(this).data("id");
-        $.get("/admin/level/edit/?id="+id, function (res) {
+        $.get("/admin/leave/edit/?id="+id, function (res) {
             if (res.code != "000") {
                 common.errorMessage(res.message);
             } else {
@@ -39,7 +39,7 @@ define(function(require, exports) {
                     tempId : "index-template",
                     formId : "cAdd",
                     data : {
-                        url : "/admin/level/update",
+                        url : "/admin/leave/update",
                         item : res.item
                     }
                 });

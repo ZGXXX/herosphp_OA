@@ -37,7 +37,7 @@
             "role" : "{app}/role.js",
             "menu" : "{app}/menu.js",
             "permission" : "{app}/permission.js",
-            "level" : "{app}/level.js",
+            "leave" : "{app}/leave.js",
         },
         preload: [
 

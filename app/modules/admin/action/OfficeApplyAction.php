@@ -1,20 +1,19 @@
 <?php
 namespace app\admin\action;
 
-use app\admin\service\AdminLevelTypeService;
+use app\admin\service\AdminOfficeApplyService;
 use herosphp\http\HttpRequest;
 use herosphp\utils\JsonResult;
-use herosphp\string\StringUtils;
 
 /**
  * 假期类型控制器
  * @author  zgx<605313192@qq.com>
  */
-class LeveltypeAction extends CommonAction {
+class OfficeApplyAction extends CommonAction {
 
-    protected $serviceClass = AdminLevelTypeService::class;
+    protected $serviceClass = AdminOfficeApplyService::class;
 
-    protected $actionTitle = "类型";
+    protected $actionTitle = "办公室";
 
     /**
      * 假期类型列表
@@ -22,7 +21,7 @@ class LeveltypeAction extends CommonAction {
     public function index(HttpRequest $request) {
         parent::index($request);
 
-        $this->setView('level/level_type');
+        $this->setView('office/office_index');
         $this->setOpt($this->actionTitle."列表");
     }
 

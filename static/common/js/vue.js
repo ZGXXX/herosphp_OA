@@ -1952,7 +1952,7 @@ function checkProp (
 // 1. When the children contains components - because a functional component
 // may return an Array instead of a single root. In this case, just a simple
 // normalization is needed - if any child is an Array, we flatten the whole
-// thing with Array.prototype.concat. It is guaranteed to be only 1-level deep
+// thing with Array.prototype.concat. It is guaranteed to be only 1-leave deep
 // because functional components already normalize their own children.
 function simpleNormalizeChildren (children) {
   for (var i = 0; i < children.length; i++) {
@@ -5552,7 +5552,7 @@ function createPatchFunction (backend) {
               warn(
                 'The client-side rendered virtual DOM tree is not matching ' +
                 'server-rendered content. This is likely caused by incorrect ' +
-                'HTML markup, for example nesting block-level elements inside ' +
+                'HTML markup, for example nesting block-leave elements inside ' +
                 '<p>, or missing <tbody>. Bailing hydration and performing ' +
                 'full client-side render.'
               );
@@ -9600,7 +9600,7 @@ function genChildren (
 
 // determine the normalization needed for the children array.
 // 0: no normalization needed
-// 1: simple normalization needed (possible 1-level deep nested array)
+// 1: simple normalization needed (possible 1-leave deep nested array)
 // 2: full normalization needed
 function getNormalizationType (
   children,

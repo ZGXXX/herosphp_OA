@@ -20,11 +20,11 @@
     </thead>
     <tbody>
 
-    {if empty($level_wait)}
+    {if empty($leave_wait)}
     <tr><td class="empty-td">暂无记录.</td></tr>
     {/if}
 
-    {loop $level_wait $value}
+    {loop $leave_wait $value}
     <tr class="gradeX">
         <td class="list-checkbox-th">
             <label class="am-checkbox-inline">
@@ -32,7 +32,7 @@
             </label>
         </td>
         <td>{$value[user_name]}</td>
-        <td>{$value[level_name]}</td>
+        <td>{$value[leave_name]}</td>
         <td>{$value[begintime]}</td>
         <td>{$value[endtime]}</td>
         <td>{$value[count]}</td>

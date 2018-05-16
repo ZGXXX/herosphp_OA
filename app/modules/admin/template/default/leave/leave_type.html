@@ -66,7 +66,7 @@
                                                     <input type="checkbox"
                                                            {if $value[enable] == 1}checked{/if}
                                                     data-type="switch"
-                                                    data-url="/admin/level/enable"
+                                                    data-url="/admin/leavetype/enable"
                                                     data-id="{$value[id]}"
                                                     class="ios-switch tpl-switch-btn am-margin-top-xs">
                                                     <div class="tpl-switch-btn-view" title="禁用"><div></div></div>
@@ -110,7 +110,7 @@
 
 </div>
 {include admin.inc.res}
-<script type="text/html" id="level-template">
+<script type="text/html" id="leave-template">
     <form data-action="{%url%}" class="am-form" id="cAdd" data-location="reload">
         <div class="am-form-group">
             <label class="am-form-label">假期名称：</label>
@@ -122,7 +122,7 @@
 </script>
 
 <script>
-    seajs.use("level");
+    seajs.use("leave");
 </script>
 
 </body>

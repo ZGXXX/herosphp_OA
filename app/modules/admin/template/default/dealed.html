@@ -19,11 +19,11 @@
     </thead>
     <tbody>
 
-    {if empty($level_dealed)}
+    {if empty($leave_dealed)}
     <tr><td class="empty-td">暂无记录.</td></tr>
     {/if}
 
-    {loop $level_dealed $value}
+    {loop $leave_dealed $value}
     <tr class="gradeX">
         <td class="list-checkbox-th">
             <label class="am-checkbox-inline">
@@ -31,7 +31,7 @@
             </label>
         </td>
         <td>{$value[user_name]}</td>
-        <td>{$value[level_name]}</td>
+        <td>{$value[leave_name]}</td>
         <td>{$value[begintime]}</td>
         <td>{$value[endtime]}</td>
         <td>{$value[count]}</td>

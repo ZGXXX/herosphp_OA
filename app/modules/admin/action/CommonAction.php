@@ -199,6 +199,7 @@ abstract class CommonAction extends Controller {
     public function enable(HttpRequest $request, $callback) {
         $id = $request->getParameter('id', 'trim');
         $enable = $request->getParameter('enable');
+        var_dump($id);exit();
         if (empty($id)) {
             JsonResult::fail(Lang::OPT_FAIL);
         }

@@ -57,10 +57,10 @@ define(function(require, exports) {
     $("#item-add").on("click", function () {
         common.post({
             title : "添加假期",
-            tempId : "level-template",
+            tempId : "leave-template",
             formId : "cAdd",
             data : {
-                url : "/admin/leveltype/insert",
+                url : "/admin/leavetype/insert",
                 item : {}
             }
         });
@@ -69,16 +69,16 @@ define(function(require, exports) {
     //编辑假期
     $(".item-edit").on("click", function () {
         var id = $(this).data("id");
-        $.get("/admin/level/edit/?id="+id, function (res) {
+        $.get("/admin/leave/edit/?id="+id, function (res) {
             if (res.code != "000") {
                 common.errorMessage(res.message);
             } else {
                 common.post({
                     title : "编辑假期",
-                    tempId : "level-template",
+                    tempId : "leave-template",
                     formId : "cAdd",
                     data : {
-                        url : "/admin/level/update",
+                        url : "/admin/leave/update",
                         item : res.item
                     }
                 });
