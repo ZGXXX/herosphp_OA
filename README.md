@@ -63,3 +63,6 @@ $request->getParameter('data');是用来获取前端表单属性name的值,例�
 
 ### 2018.5.15
 完善假期申请功能，区别了超级管理员可以审核，管理员不可审核只可显示；修改了假期的英文单词level-》leave，修改各种文件名发现出现SQL错误,select * from leave,这里的leave没法被识别为表名是因为leave是MySQL的保留字
+
+### 2018.5.16 ~
+暂停新手项目,接受SaaS系统...
